@@ -1,0 +1,31 @@
+@model General.Model.Presentations
+
+@using (Html.BeginForm())
+{ 
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.PresentationTitle, new { @class = "control-label col-sm-2" })
+                @Html.ValidationMessageFor(model => model.PresentationTitle)
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.Author, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Author)
+                </div>
+            </div>
+            @foreach (var page in Model.PresentationPages)
+            {
+                <div class="form-group">
+                    <div class="col-sm-7">
+                        @Html.TextBoxFor(model => page.Body, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => page.Body)
+                    </div>             
+                </div>
+            }
+            <div>
+                <input type="submit" value="Save" class="btn btn-lg btn-default" />
+            </div>
+        </div>
+    </div>
+}

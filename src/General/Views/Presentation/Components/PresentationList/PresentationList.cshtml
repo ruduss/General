@@ -1,0 +1,26 @@
+﻿@model List<General.Model.Presentations>
+
+<h3>Presentations</h3>
+<div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th></th>
+                </tr>
+            </thead>
+            @*@foreach (var item in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td rowspan="2">@Html.DisplayFor(x => item.PresentationTitle)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Author)</td>
+                        <td>@Html.ActionLink("Edit", "Edit", new { id = item.Id })</td>
+                    </tr>
+                </tbody>
+            }*@
+        </table>
+    </div>
+</div>
